@@ -1,7 +1,7 @@
-package com.example.modelo_examen_kotlin
+package com.example.modelo_examen_kotlin.Model
 
 import android.content.Context
-import com.example.modelo_examen_kotlin.Tarea.Notificacion
+import com.example.modelo_examen_kotlin.Model.Tarea.Notificacion
 
 interface Recordatorio {
 

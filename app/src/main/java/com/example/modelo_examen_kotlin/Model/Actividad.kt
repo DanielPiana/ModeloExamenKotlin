@@ -1,4 +1,4 @@
-package com.example.modelo_examen_kotlin
+package com.example.modelo_examen_kotlin.Model
 
 open abstract class Actividad(
      nombre: String,

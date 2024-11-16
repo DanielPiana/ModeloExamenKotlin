@@ -1,4 +1,4 @@
-package com.example.modelo_examen_kotlin
+package com.example.modelo_examen_kotlin.Model
 
 import android.content.Context
 import java.time.LocalDateTime
@@ -8,7 +8,7 @@ class Cita(
     override var completada: Boolean,
     var fechaHora: LocalDateTime,
     var lugar: String,
-    var personas : ArrayList<Persona>? ) :Actividad(nombre, completada), Recordatorio {
+    var personas : ArrayList<Persona>? ) : Actividad(nombre, completada), Recordatorio {
 
     fun agregarPersonaCita (persona: Persona): Unit {
         personas?.add(persona)

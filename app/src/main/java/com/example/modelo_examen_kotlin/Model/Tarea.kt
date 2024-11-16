@@ -1,9 +1,10 @@
-package com.example.modelo_examen_kotlin
+package com.example.modelo_examen_kotlin.Model
 
 import android.content.Context
 import android.widget.Toast
 import java.time.LocalDate
 import java.time.LocalDateTime
+import com.example.modelo_examen_kotlin.extensiones.*
 
 class Tarea(
     override var nombre: String,
@@ -27,17 +28,17 @@ class Tarea(
     }
 
     override fun programarRecordatorio(context: Context, mensaje: String) {
-        Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show()
+        context.toast(mensaje)
     }
 
     override fun cancelarRecordatorio(context:Context, notificacion: Notificacion?) {
         if (notificacion == null) {
-            Toast.makeText(context,"No existe este recordatorio", Toast.LENGTH_SHORT).show()
+            context.toast("No existe este recordatorio")
         } else if (notificacion.activo) {
             this.notificacion = null
-            Toast.makeText(context,"Recordatorio cancelaco correctamente", Toast.LENGTH_SHORT).show()
+            context.toast("Recordatorio cancelaco correctamente")
         } else {
-            Toast.makeText(context,"Ese recordatorio ya está desactivado", Toast.LENGTH_SHORT).show()
+            context.toast("Ese recordatorio ya está desactivado")
         }
     }
 
@@ -47,9 +48,9 @@ class Tarea(
 
         fun mostrarNotificacion(context: Context) {
             if (!this.activo) {
-                Toast.makeText(context,"La notificación no está activada",Toast.LENGTH_SHORT).show()
+                context.toast("La notificación no está activada")
             } else {
-                Toast.makeText(context,"Hora: ${this.fecha_hora_notificacion}",Toast.LENGTH_LONG).show()
+                context.toast("Hora: ${this.fecha_hora_notificacion}",Toast.LENGTH_LONG)
             }
         }
     }

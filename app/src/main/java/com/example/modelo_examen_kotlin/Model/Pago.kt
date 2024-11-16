@@ -1,8 +1,9 @@
-package com.example.modelo_examen_kotlin
+package com.example.modelo_examen_kotlin.Model
 
 import android.content.Context
 import android.widget.Toast
 import java.time.LocalDate
+import com.example.modelo_examen_kotlin.extensiones.*
 
 class Pago(
     override  var nombre: String,
@@ -10,11 +11,11 @@ class Pago(
     var cantidad: Double,
     var fechaPago: LocalDate,
     var metodoPago: String
-):Actividad(nombre,completada) {
+): Actividad(nombre,completada) {
 
     fun procesarPago(context: Context) {
         this.marcarComoCompletada()
-        Toast.makeText(context,"Pago procesado",Toast.LENGTH_LONG).show()
+        context.toast("Pago procesado", Toast.LENGTH_LONG)
     }
     override fun mostrarDetalles():String {
         return "Nombre: ${nombre} " +

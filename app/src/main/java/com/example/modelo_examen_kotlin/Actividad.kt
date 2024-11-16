@@ -11,7 +11,7 @@ open abstract class Actividad(
         this.completada = true;
     }
 
-    open fun mostrarDetalles() {
-        println("Nombre: ${this.nombre} Completada: ${this.completada}")
+    open fun mostrarDetalles():String {
+        return "Nombre: ${this.nombre} Completada: ${this.completada}"
     }
 }

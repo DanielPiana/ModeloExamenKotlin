@@ -1,5 +1,6 @@
 package com.example.modelo_examen_kotlin
 
+import android.content.Context
 import java.time.LocalDateTime
 
 class Cita(
@@ -7,19 +8,24 @@ class Cita(
     override var completada: Boolean,
     var fechaHora: LocalDateTime,
     var lugar: String,
-    var personas : List<Persona>? ):Actividad(nombre, completada), Recordatorio {
+    var personas : ArrayList<Persona>? ) :Actividad(nombre, completada), Recordatorio {
 
-    fun agregarPersona (persona: Persona): Unit {
-
+    fun agregarPersonaCita (persona: Persona): Unit {
+        personas?.add(persona)
     }
-    override fun mostrarDetalles() {
+    override fun mostrarDetalles():String {
+        return "Cita: ${nombre} " +
+                "Completada: ${completada} " +
+                "Fecha y hora: ${fechaHora} " +
+                "Lugar: ${lugar} " +
+                "Personas: ${personas.toString()}"
     }
 
-    override fun programarRecordatorio() {
+    override fun programarRecordatorio(context: Context, mensaje: String) {
         TODO("Not yet implemented")
     }
 
-    override fun cancelarRecordatorio() {
+    override fun cancelarRecordatorio(context: Context, notificacion: Tarea.Notificacion?) {
         TODO("Not yet implemented")
     }
 }

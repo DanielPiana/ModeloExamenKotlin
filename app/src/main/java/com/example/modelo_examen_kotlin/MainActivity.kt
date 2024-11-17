@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonElegir.setOnClickListener {
-            val intent = Intent(this, activity::class.java)
+            val intent = Intent(this, activity)
             startActivity(intent)
         }
 

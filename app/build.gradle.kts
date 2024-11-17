@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.modelo_examen_kotlin"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.modelo_examen_kotlin"

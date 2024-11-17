@@ -42,6 +42,12 @@ class Tarea(
         }
     }
 
+    fun crearNotificacion (fecha:LocalDateTime,activo: Boolean): Notificacion {
+        val nuevaNotificacion = Notificacion(fecha,activo)
+        this.notificacion = nuevaNotificacion
+        return nuevaNotificacion
+    }
+
     inner class Notificacion(
         var fecha_hora_notificacion: LocalDateTime,
         var activo: Boolean) {

@@ -1,6 +1,8 @@
 package com.example.modelo_examen_kotlin.Model
 
 import android.content.Context
+import com.example.modelo_examen_kotlin.extensiones.funcionSuperior
+import com.example.modelo_examen_kotlin.extensiones.toast
 import java.time.LocalDateTime
 
 class Cita(
@@ -9,6 +11,7 @@ class Cita(
     var fechaHora: LocalDateTime,
     var lugar: String,
     var personas : ArrayList<Persona>? ) : Actividad(nombre, completada), Recordatorio {
+
 
     fun agregarPersonaCita (persona: Persona): Unit {
         personas?.add(persona)
@@ -19,6 +22,28 @@ class Cita(
                 "Fecha y hora: ${fechaHora} " +
                 "Lugar: ${lugar} " +
                 "Personas: ${personas.toString()}"
+    }
+
+    fun añadirCita(cita: Cita,listaCitas:ArrayList<Actividad>,context: Context) {
+        // GUARDAMOS EN CITAEXISTENTE UNA CITA SI COINCIDE CON LOS PARAMETROS DE BUSQUEDA
+        //DONDE DEVUELVE TRUE, ES QUE COINCIDE Y SE GUARDA EN CITA EXISTENTE,
+        //DEBAJO COMPROBAMOS SI ESTA VACIO O NO PARA AGREGAR LA CITA O NO.
+        val citaExistente = listaCitas.funcionSuperior {
+            if (it is Cita) {
+                if (it.fechaHora == cita.fechaHora) {
+                    return@funcionSuperior true
+                } else {
+                    return@funcionSuperior false
+                }
+            } else {
+                return@funcionSuperior false
+            }
+        }
+        if (citaExistente.isEmpty()) {
+            listaCitas.add(cita)
+        } else {
+            context.toast("Esa fecha y hora no esta disponible")
+        }
     }
 
     override fun programarRecordatorio(context: Context, mensaje: String) {

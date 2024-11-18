@@ -6,19 +6,19 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextnombre"
+        android:id="@+id/editTextnombreTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
         android:text="Nombre"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCantidad"
+        app:layout_constraintBottom_toTopOf="@+id/editTextCantidadPago"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextCantidad"
+        android:id="@+id/editTextCantidadPago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="216dp"

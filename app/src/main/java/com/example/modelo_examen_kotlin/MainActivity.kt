@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        var rbCita = findViewById<RadioButton>(R.id.rbCita)
-        var rbTarea = findViewById<RadioButton>(R.id.rbTarea)
-        var rbPago = findViewById<RadioButton>(R.id.rbPago)
+
         var buttonElegir = findViewById<Button>(R.id.buttonElegir)
-        var radiogroup = findViewById<RadioGroup>(R.id.radioGroup)
         lateinit var radioButtonSeleccionado: RadioButton
         lateinit var activity: Class<*>
 
+
+        var radiogroup = findViewById<RadioGroup>(R.id.radioGroup)
+        //CUANDO CAMBIA EL RADIOBUTTON SELECCIONADO DEL RADIOGROUP, SE GUARDA EN checkedId
         radiogroup.setOnCheckedChangeListener { group, checkedId ->
             //COJO EL RADIOBUTTON SELECCIONADO (checkedId)
             radioButtonSeleccionado = findViewById(checkedId)

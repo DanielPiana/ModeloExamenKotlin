@@ -11,6 +11,9 @@ class Cita(
     var fechaHora: LocalDateTime,
     var lugar: String,
     var personas : ArrayList<Persona>? ) : Actividad(nombre, completada), Recordatorio {
+        companion object {
+            var listaCitas = ArrayList<Actividad>()
+        }
 
 
     fun agregarPersonaCita (persona: Persona): Unit {
@@ -24,7 +27,15 @@ class Cita(
                 "Personas: ${personas.toString()}"
     }
 
-    fun añadirCita(cita: Cita,listaCitas:ArrayList<Actividad>,context: Context) {
+    fun imprimirCitas() {
+        listaCitas.forEachIndexed { index, cita ->
+            println("Cita $index: ${cita.mostrarDetalles()}")
+        }
+        println("Total de citas: ${listaCitas.size}")
+    }
+
+
+    fun añadirCita(cita: Cita,context: Context) {
         // GUARDAMOS EN CITAEXISTENTE UNA CITA SI COINCIDE CON LOS PARAMETROS DE BUSQUEDA
         //DONDE DEVUELVE TRUE, ES QUE COINCIDE Y SE GUARDA EN CITA EXISTENTE,
         //DEBAJO COMPROBAMOS SI ESTA VACIO O NO PARA AGREGAR LA CITA O NO.
@@ -41,6 +52,7 @@ class Cita(
         }
         if (citaExistente.isEmpty()) {
             listaCitas.add(cita)
+            context.toast("Cita añadida correctamente")
         } else {
             context.toast("Esa fecha y hora no esta disponible")
         }
